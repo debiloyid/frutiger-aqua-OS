@@ -852,83 +852,68 @@ document.addEventListener('DOMContentLoaded', () => {
     minesResetBtn.addEventListener('click', initMines);
     initMines();
 
-    // 14. Міні-гра: Aqua Змійка
-    const snakeCanvas = document.getElementById('snake-canvas');
-    const sCtx = snakeCanvas.getContext('2d');
-    const snakeScoreEl = document.getElementById('snake-score');
-    const GRID = 14.5;
-    let snake = [], dir = { x: 1, y: 0 }, food = { x: 8, y: 8 }, snakeScore = 0, snakeLoop = null;
+     // 14. Міні-гра: Aqua Пам'ять (4x4, 8 морських пар)
+    const memGrid = document.getElementById('memory-grid');
+    const memMovesEl = document.getElementById('mem-moves');
+    const memPairsEl = document.getElementById('mem-pairs');
+    const seaItems = ['Рибка', 'Медуза', 'Дельфін', 'Перлина', 'Корал', 'Зірка', 'Каченя', 'Хвиля'];
+    let flippedCards = [], matchedPairs = 0, movesCount = 0, lockBoard = false;
 
-    function startSnakeGame() {
-        clearInterval(snakeLoop);
-        snake = [{ x: 5, y: 8 }, { x: 4, y: 8 }, { x: 3, y: 8 }];
-        dir = { x: 1, y: 0 };
-        snakeScore = 0;
-        snakeScoreEl.textContent = '0';
-        spawnFood();
-        drawSnake();
-        snakeLoop = setInterval(updateSnake, 130);
-    }
+    function initMemoryGame() {
+        memGrid.innerHTML = '';
+        flippedCards = [];
+        matchedPairs = 0;
+        movesCount = 0;
+        lockBoard = false;
+        memMovesEl.textContent = '0';
+        memPairsEl.textContent = '0/8';
 
-    function spawnFood() {
-        food = {
-            x: Math.floor(Math.random() * 20),
-            y: Math.floor(Math.random() * 16)
-        };
-    }
+        const deck = [...seaItems, ...seaItems].sort(() => Math.random() - 0.5);
 
-    function updateSnake() {
-        if (document.getElementById('win-snake').style.display === 'none') return;
-        const head = { x: snake.x + dir.x, y: snake.y + dir.y };
+        deck.forEach(label => {
+            const card = document.createElement('div');
+            card.className = 'mem-card';
+            card.dataset.value = label;
+            card.textContent = label;
 
-        if (head.x < 0 || head.x >= 20 || head.y < 0 || head.y >= 16 ||
-            snake.some(seg => seg.x === head.x && seg.y === head.y)) {
-            clearInterval(snakeLoop);
-            playSystemBeep(200, 0.25);
-            sCtx.fillStyle = 'rgba(0,0,0,0.65)';
-            sCtx.fillRect(0, 0, snakeCanvas.width, snakeCanvas.height);
-            sCtx.fillStyle = '#fff';
-            sCtx.font = 'bold 16px Segoe UI';
-            sCtx.fillText('Гру закінчено!', 90, 120);
-            return;
-        }
+            card.addEventListener('click', () => {
+                if (lockBoard || card.classList.contains('flipped') || card.classList.contains('matched')) return;
 
-        snake.unshift(head);
-        if (head.x === food.x && head.y === food.y) {
-            snakeScore += 10;
-            snakeScoreEl.textContent = snakeScore;
-            playSystemBeep(780, 0.08);
-            spawnFood();
-        } else {
-            snake.pop();
-        }
-        drawSnake();
-    }
+                card.classList.add('flipped');
+                flippedCards.push(card);
+                playSystemBeep(620, 0.05);
 
-    function drawSnake() {
-        sCtx.clearRect(0, 0, snakeCanvas.width, snakeCanvas.height);
-        sCtx.fillStyle = '#ffbe0b';
-        sCtx.beginPath();
-        sCtx.arc(food.x * GRID + GRID / 2, food.y * GRID + GRID / 2, GRID / 2.2, 0, Math.PI * 2);
-        sCtx.fill();
+                if (flippedCards.length === 2) {
+                    movesCount++;
+                    memMovesEl.textContent = movesCount;
+                    checkMemoryMatch();
+                }
+            });
 
-        snake.forEach((seg, idx) => {
-            sCtx.fillStyle = idx === 0 ? '#a8ff78' : '#38ef7d';
-            sCtx.fillRect(seg.x * GRID + 1, seg.y * GRID + 1, GRID - 2, GRID - 2);
+            memGrid.appendChild(card);
         });
     }
 
-    document.addEventListener('keydown', (e) => {
-        if (document.getElementById('win-snake').style.display === 'none') return;
-        if (['ArrowUp', 'ArrowDown', 'ArrowLeft', 'ArrowRight'].includes(e.key)) {
-            e.preventDefault();
+    function checkMemoryMatch() {
+        const [first, second] = flippedCards;
+        if (first.dataset.value === second.dataset.value) {
+            first.classList.add('matched');
+            second.classList.add('matched');
+            flippedCards = [];
+            matchedPairs++;
+            memPairsEl.textContent = `${matchedPairs}/8`;
+            playSystemBeep(880, 0.12);
+        } else {
+            lockBoard = true;
+            setTimeout(() => {
+                first.classList.remove('flipped');
+                second.classList.remove('flipped');
+                flippedCards = [];
+                lockBoard = false;
+            }, 700);
         }
-        if (e.key === 'ArrowUp' && dir.y !== 1) dir = { x: 0, y: -1 };
-        if (e.key === 'ArrowDown' && dir.y !== -1) dir = { x: 0, y: 1 };
-        if (e.key === 'ArrowLeft' && dir.x !== 1) dir = { x: -1, y: 0 };
-        if (e.key === 'ArrowRight' && dir.x !== -1) dir = { x: 1, y: 0 };
-    });
+    }
 
-    document.getElementById('snake-start').addEventListener('click', startSnakeGame);
-    startSnakeGame();
+    document.getElementById('mem-restart').addEventListener('click', initMemoryGame);
+    initMemoryGame();
 });
