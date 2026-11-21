@@ -158,9 +158,10 @@
                 <div class="app-icon ico-mines"></div>
                 <div class="shortcut-label">Сапер</div>
             </div>
-            <div class="desktop-shortcut" data-win="win-snake">
-                <div class="app-icon ico-snake"></div>
-                <div class="shortcut-label">Aqua Змійка</div>
+            <div class="desktop-shortcut" data-win="win-memory">
+                <div class="app-icon ico-memory"></div>
+                <div class="shortcut-label">Aqua Пам'ять</div>
+            </div>
             </div>
             <div class="desktop-shortcut" data-win="win-calc">
                 <div class="app-icon ico-calc"></div>
@@ -479,27 +480,27 @@
             </div>
         </div>
 
-        <!-- ВІКНО 10: Aqua Змійка -->
-        <div class="win-window aero-frame" id="win-snake" style="top: 80px; left: 350px; width: 326px; display: none;">
+        <!-- ВІКНО 10: Aqua Пам'ять -->
+        <div class="win-window aero-frame" id="win-memory" style="top: 85px; left: 340px; width: 320px; display: none;">
             <div class="win-titlebar">
                 <div class="win-title-left">
-                    <span class="title-badge b-snake"></span>
-                    <span class="win-title-text">Aqua Змійка</span>
+                    <span class="title-badge b-memory"></span>
+                    <span class="win-title-text">Aqua Пам'ять</span>
                 </div>
                 <div class="win-caption-btns">
                     <button class="cap-btn cap-min">_</button>
-                    <button class="cap-btn cap-close" data-close="win-snake">X</button>
+                    <button class="cap-btn cap-close" data-close="win-memory">X</button>
                 </div>
             </div>
-            <div class="win-content snake-container">
-                <div class="snake-hud">
-                    <span>Очки: <strong id="snake-score">0</strong></span>
-                    <button id="snake-start" class="vista-btn small">Старт / Рестарт</button>
+            <div class="win-content memory-container">
+                <div class="memory-hud">
+                    <span>Ходи: <strong id="mem-moves">0</strong> | Пари: <strong id="mem-pairs">0/8</strong></span>
+                    <button id="mem-restart" class="vista-btn small">Нова гра</button>
                 </div>
-                <canvas id="snake-canvas" width="290" height="232"></canvas>
-                <div class="snake-footer">Керування: стрілки вгору, вниз, вліво, вправо</div>
+                <div id="memory-grid" class="memory-grid"></div>
             </div>
         </div>
+
 
         <!-- ВІКНО 11: Калькулятор -->
         <div class="win-window aero-frame" id="win-calc" style="top: 110px; left: 400px; width: 246px; display: none;">
@@ -616,8 +617,8 @@
                         <div class="vsm-item" data-win="win-mines">
                             <span class="title-badge b-mines"></span><span>Сапер</span>
                         </div>
-                        <div class="vsm-item" data-win="win-snake">
-                            <span class="title-badge b-snake"></span><span>Aqua Змійка</span>
+                        <div class="vsm-item" data-win="win-memory">
+                            <span class="title-badge b-memory"></span><span>Aqua Пам'ять</span>
                         </div>
                         <div class="vsm-item" data-win="win-recycle">
                             <span class="title-badge b-recycle"></span><span>Кошик з каченям</span>
