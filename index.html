@@ -1,0 +1,680 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Windows Vista Ultimate — Frutiger Aqua</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="theme-aqua">
+    <!-- Екран входу Windows Vista -->
+    <div id="lock-screen" class="lock-screen hidden">
+        <div class="login-card">
+            <div class="avatar-frame">
+                <div class="user-avatar"></div>
+            </div>
+            <div class="login-name">Administrator</div>
+            <div class="login-sub">Windows Vista Ultimate — Aqua Edition</div>
+            <button id="btn-unlock" class="vista-btn">Увійти в систему</button>
+        </div>
+    </div>
+
+    <div id="desktop">
+        <!-- Фотореалістична сцена Frutiger Aqua (Небо + Океан + Медузи + Рибки) -->
+        <div class="aqua-world" id="wallpaper">
+            <!-- Небо над горизонтом та сонце -->
+            <div class="sky-zone">
+                <div class="sun-corona"></div>
+                <div class="horizon-cloud hc1"></div>
+                <div class="horizon-cloud hc2"></div>
+                <div class="horizon-island"></div>
+            </div>
+
+            <!-- Лінія розрізу води з піною -->
+            <div class="waterline-crest"></div>
+
+            <!-- Підводна товща з променями світла -->
+            <div class="underwater-zone">
+                <div class="god-rays"></div>
+                <div class="sandy-bed">
+                    <div class="caustics-mesh"></div>
+                </div>
+
+                <!-- Скляна сфера-глобус з екосистемою -->
+                <div class="aqua-globe" id="bg-globe">
+                    <div class="globe-land"></div>
+                    <div class="globe-atmosphere"></div>
+                    <div class="globe-shine"></div>
+                </div>
+
+                <!-- Прокачана Медуза 1 (велика біолюмінесцентна) -->
+                <div class="jellyfish jf-1">
+                    <div class="jf-umbrella">
+                        <div class="jf-core-glow"></div>
+                        <div class="jf-rim"></div>
+                    </div>
+                    <div class="jf-oral-arms"><span></span><span></span><span></span></div>
+                    <div class="jf-tentacles"><span></span><span></span><span></span><span></span><span></span></div>
+                </div>
+
+                <!-- Прокачана Медуза 2 (мала) -->
+                <div class="jellyfish jf-2">
+                    <div class="jf-umbrella">
+                        <div class="jf-core-glow"></div>
+                        <div class="jf-rim"></div>
+                    </div>
+                    <div class="jf-oral-arms"><span></span><span></span></div>
+                    <div class="jf-tentacles"><span></span><span></span><span></span><span></span></div>
+                </div>
+
+                <!-- Прокачані Золоті Рибки з вуалевими плавцями -->
+                <div class="goldfish gf-1">
+                    <div class="gf-dorsal"></div>
+                    <div class="gf-tail-top"></div>
+                    <div class="gf-tail-bot"></div>
+                    <div class="gf-body">
+                        <div class="gf-scales"></div>
+                        <div class="gf-gill"></div>
+                        <div class="gf-eye"></div>
+                        <div class="gf-pectoral"></div>
+                    </div>
+                </div>
+
+                <div class="goldfish gf-2">
+                    <div class="gf-dorsal"></div>
+                    <div class="gf-tail-top"></div>
+                    <div class="gf-tail-bot"></div>
+                    <div class="gf-body">
+                        <div class="gf-scales"></div>
+                        <div class="gf-gill"></div>
+                        <div class="gf-eye"></div>
+                        <div class="gf-pectoral"></div>
+                    </div>
+                </div>
+
+                <div class="goldfish gf-3">
+                    <div class="gf-dorsal"></div>
+                    <div class="gf-tail-top"></div>
+                    <div class="gf-tail-bot"></div>
+                    <div class="gf-body">
+                        <div class="gf-scales"></div>
+                        <div class="gf-gill"></div>
+                        <div class="gf-eye"></div>
+                        <div class="gf-pectoral"></div>
+                    </div>
+                </div>
+
+                <!-- Об'ємні водяні бульбашки -->
+                <div class="water-bubble wb1"></div>
+                <div class="water-bubble wb2"></div>
+                <div class="water-bubble wb3"></div>
+                <div class="water-bubble wb4"></div>
+                <div class="water-bubble wb5"></div>
+                <div class="water-bubble wb6"></div>
+
+                <!-- Корали та водорості на дні -->
+                <div class="coral-reef cr1"></div>
+                <div class="coral-reef cr2"></div>
+                <div class="seaweed sw1"></div>
+                <div class="seaweed sw2"></div>
+                <div class="seaweed sw3"></div>
+            </div>
+        </div>
+        <div class="desktop-grid" id="desktop-grid">
+            <div class="desktop-shortcut" data-win="win-computer">
+                <div class="app-icon ico-computer"></div>
+                <div class="shortcut-label">Комп'ютер</div>
+            </div>
+            <div class="desktop-shortcut" data-win="win-recycle">
+                <div class="app-icon ico-recycle"></div>
+                <div class="shortcut-label">Кошик</div>
+            </div>
+            <div class="desktop-shortcut" data-win="win-ie">
+                <div class="app-icon ico-ie"></div>
+                <div class="shortcut-label">Internet Explorer</div>
+            </div>
+            <div class="desktop-shortcut" data-win="win-msn">
+                <div class="app-icon ico-msn"></div>
+                <div class="shortcut-label">Live Messenger</div>
+            </div>
+            <div class="desktop-shortcut" data-win="win-aquarium">
+                <div class="app-icon ico-aquarium"></div>
+                <div class="shortcut-label">Акваріум 3D</div>
+            </div>
+            <div class="desktop-shortcut" data-win="win-media">
+                <div class="app-icon ico-wmp"></div>
+                <div class="shortcut-label">Media Player</div>
+            </div>
+            <div class="desktop-shortcut" data-win="win-paint">
+                <div class="app-icon ico-paint"></div>
+                <div class="shortcut-label">Paint</div>
+            </div>
+            <div class="desktop-shortcut" data-win="win-notes">
+                <div class="app-icon ico-notepad"></div>
+                <div class="shortcut-label">Блокнот</div>
+            </div>
+            <div class="desktop-shortcut" data-win="win-mines">
+                <div class="app-icon ico-mines"></div>
+                <div class="shortcut-label">Сапер</div>
+            </div>
+            <div class="desktop-shortcut" data-win="win-snake">
+                <div class="app-icon ico-snake"></div>
+                <div class="shortcut-label">Aqua Змійка</div>
+            </div>
+            <div class="desktop-shortcut" data-win="win-calc">
+                <div class="app-icon ico-calc"></div>
+                <div class="shortcut-label">Калькулятор</div>
+            </div>
+            <div class="desktop-shortcut" data-win="win-themes">
+                <div class="app-icon ico-personalize"></div>
+                <div class="shortcut-label">Персоналізація</div>
+            </div>
+        </div>
+        <!-- Бічна панель гаджетів Windows Vista (Sidebar) -->
+        <div class="vista-sidebar" id="widgets-area">
+            <div class="gadget clock-gadget">
+                <div class="analog-face">
+                    <div class="hand hour-hand" id="hour-hand"></div>
+                    <div class="hand min-hand" id="min-hand"></div>
+                    <div class="hand sec-hand" id="sec-hand"></div>
+                    <div class="clock-center"></div>
+                </div>
+                <div class="digital-readout" id="widget-time">12:30</div>
+            </div>
+
+            <div class="gadget weather-gadget">
+                <div class="gadget-header">Вінниця — Лагуна</div>
+                <div class="weather-row">
+                    <div class="weather-sun-icon"></div>
+                    <div class="weather-temp">24°C</div>
+                </div>
+                <div class="weather-desc">Кришталева вода, штиль</div>
+            </div>
+
+            <div class="gadget note-gadget">
+                <div class="note-top">Aqua Нотатки</div>
+                <textarea spellcheck="false">- Відкрий Акваріум 3D і погодуй рибок&#10;- Напиши в Live Messenger&#10;- Перевір Кошик з каченям</textarea>
+            </div>
+        </div>
+
+        <!-- Контекстне меню робочого столу -->
+        <div id="context-menu" class="win-context-menu">
+            <div class="ctx-row" id="ctx-refresh">Оновити робочий стіл</div>
+            <div class="ctx-row" id="ctx-next-theme">Змінити підводну тему</div>
+            <div class="ctx-sep"></div>
+            <div class="ctx-row" data-win="win-aquarium">Відкрити Акваріум 3D</div>
+            <div class="ctx-row" data-win="win-notes">Створити текстовий документ</div>
+            <div class="ctx-sep"></div>
+            <div class="ctx-row" data-win="win-themes">Персоналізація</div>
+        </div>
+
+        <!-- ВІКНО 1: Провідник (Комп'ютер) -->
+        <div class="win-window aero-frame" id="win-computer" style="top: 50px; left: 215px; width: 520px; height: 340px;">
+            <div class="win-titlebar">
+                <div class="win-title-left">
+                    <span class="title-badge b-computer"></span>
+                    <span class="win-title-text">Комп'ютер</span>
+                </div>
+                <div class="win-caption-btns">
+                    <button class="cap-btn cap-min">_</button>
+                    <button class="cap-btn cap-max">[]</button>
+                    <button class="cap-btn cap-close" data-close="win-computer">X</button>
+                </div>
+            </div>
+            <div class="explorer-navbar">
+                <button class="nav-circle" id="exp-back">&lt;</button>
+                <div class="address-bar">
+                    <span class="addr-icon"></span>
+                    <span id="exp-path">Комп'ютер</span>
+                </div>
+            </div>
+            <div class="explorer-toolbar">
+                <span>Упорядкувати</span>
+                <span>Властивості системи</span>
+                <span>Програми та засоби</span>
+            </div>
+            <div class="win-content explorer-layout">
+                <div class="exp-nav-pane">
+                    <div class="nav-group-title">Вибране</div>
+                    <div class="nav-link" data-folder="root">Комп'ютер</div>
+                    <div class="nav-link" data-folder="docs">Документи</div>
+                    <div class="nav-link" data-folder="pics">Зображення</div>
+                    <div class="nav-link" data-folder="music">Музика</div>
+                </div>
+                <div class="exp-main-view" id="exp-main-view"></div>
+            </div>
+        </div>
+
+        <!-- ВІКНО 2: Кошик-Басейн з жовтим каченям -->
+        <div class="win-window aero-frame" id="win-recycle" style="top: 110px; left: 290px; width: 390px; display: none;">
+            <div class="win-titlebar">
+                <div class="win-title-left">
+                    <span class="title-badge b-recycle"></span>
+                    <span class="win-title-text">Кошик</span>
+                </div>
+                <div class="win-caption-btns">
+                    <button class="cap-btn cap-min">_</button>
+                    <button class="cap-btn cap-close" data-close="win-recycle">X</button>
+                </div>
+            </div>
+            <div class="explorer-toolbar">
+                <span id="btn-empty-bin" class="toolbar-action">Очистити кошик</span>
+                <span id="btn-restore-bin" class="toolbar-action">Відновити елементи</span>
+            </div>
+            <div class="win-content recycle-pool-view">
+                <div class="pool-water">
+                    <div class="pool-ripples"></div>
+                    <!-- Жовте гумове каченя на CSS -->
+                    <div class="rubber-duck">
+                        <div class="duck-body"></div>
+                        <div class="duck-head"><div class="duck-beak"></div><div class="duck-eye"></div></div>
+                    </div>
+                    <div class="deleted-files-list" id="deleted-files-list">
+                        <div class="bin-file">Old_Vista_Theme.bak</div>
+                        <div class="bin-file">Coral_Reef_Draft.png</div>
+                    </div>
+                </div>
+                <div class="bin-status" id="bin-status">Об'єктів: 2 (14,2 МБ)</div>
+            </div>
+        </div>
+        <!-- ВІКНО 3: Internet Explorer 7 -->
+        <div class="win-window aero-frame" id="win-ie" style="top: 75px; left: 250px; width: 520px; height: 360px; display: none;">
+            <div class="win-titlebar">
+                <div class="win-title-left">
+                    <span class="title-badge b-ie"></span>
+                    <span class="win-title-text">Windows Internet Explorer</span>
+                </div>
+                <div class="win-caption-btns">
+                    <button class="cap-btn cap-min">_</button>
+                    <button class="cap-btn cap-max">[]</button>
+                    <button class="cap-btn cap-close" data-close="win-ie">X</button>
+                </div>
+            </div>
+            <div class="ie-navbar">
+                <div class="address-bar">
+                    <span class="addr-icon"></span>
+                    <input type="text" id="ie-url" value="http://frutiger-aqua.net" readonly>
+                </div>
+                <button class="vista-btn small" id="ie-refresh">Оновити</button>
+            </div>
+            <div class="ie-tabs">
+                <button class="ie-tab active" data-site="portal">Aqua Portal 2007</button>
+                <button class="ie-tab" data-site="ocean">Енциклопедія Океану</button>
+                <button class="ie-tab" data-site="downloads">Завантаження Vista</button>
+            </div>
+            <div class="win-content ie-viewport" id="ie-viewport">
+                <!-- Контент сайтів перемикається через JS -->
+            </div>
+        </div>
+
+        <!-- ВІКНО 4: Windows Live Messenger (MSN) -->
+        <div class="win-window aero-frame" id="win-msn" style="top: 90px; left: 360px; width: 340px; display: none;">
+            <div class="win-titlebar">
+                <div class="win-title-left">
+                    <span class="title-badge b-msn"></span>
+                    <span class="win-title-text">Windows Live Messenger</span>
+                </div>
+                <div class="win-caption-btns">
+                    <button class="cap-btn cap-min">_</button>
+                    <button class="cap-btn cap-close" data-close="win-msn">X</button>
+                </div>
+            </div>
+            <div class="win-content msn-layout">
+                <div class="msn-top-banner">
+                    <div class="msn-contact-orb"></div>
+                    <div>
+                        <div class="msn-contact-name">Aqua_Dolphin_2007 (В мережі)</div>
+                        <div class="msn-mood">Слухає: Crystal_Ocean_Chill.mp3</div>
+                    </div>
+                </div>
+                <div class="msn-chat-log" id="msn-chat-log">
+                    <div class="msg-sys">Ви увійшли в Windows Live Messenger.</div>
+                    <div class="msg-them"><strong>Aqua_Dolphin:</strong> Привіт! Як тобі нова підводна тема Vista?</div>
+                </div>
+                <div class="msn-toolbar">
+                    <button class="vista-btn small" id="btn-nudge">Підштовхнути (Nudge)</button>
+                </div>
+                <div class="msn-input-row">
+                    <input type="text" id="msn-input" placeholder="Введіть повідомлення...">
+                    <button class="vista-btn small" id="msn-send">Надіслати</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- ВІКНО 5: Інтерактивний Акваріум 3D -->
+        <div class="win-window aero-frame" id="win-aquarium" style="top: 100px; left: 270px; width: 420px; display: none;">
+            <div class="win-titlebar">
+                <div class="win-title-left">
+                    <span class="title-badge b-aquarium"></span>
+                    <span class="win-title-text">Aero Акваріум 3D</span>
+                </div>
+                <div class="win-caption-btns">
+                    <button class="cap-btn cap-min">_</button>
+                    <button class="cap-btn cap-close" data-close="win-aquarium">X</button>
+                </div>
+            </div>
+            <div class="win-content aquarium-box">
+                <div class="aqua-hud">
+                    <span>Рибок: <strong id="fish-count">4</strong> | Корм: <strong id="food-count">0</strong></span>
+                    <div>
+                        <button class="vista-btn small" id="btn-add-fish">+ Рибка</button>
+                        <button class="vista-btn small" id="btn-add-jelly">+ Медуза</button>
+                    </div>
+                </div>
+                <canvas id="aquarium-canvas" width="404" height="230"></canvas>
+                <div class="aqua-tip">Клікніть у будь-яке місце води, щоб насипати корм рибкам</div>
+            </div>
+        </div>
+        <!-- ВІКНО 6: Windows Media Player -->
+        <div class="win-window aero-frame" id="win-media" style="top: 130px; left: 320px; width: 400px; display: none;">
+            <div class="win-titlebar">
+                <div class="win-title-left">
+                    <span class="title-badge b-wmp"></span>
+                    <span class="win-title-text">Windows Media Player</span>
+                </div>
+                <div class="win-caption-btns">
+                    <button class="cap-btn cap-min">_</button>
+                    <button class="cap-btn cap-close" data-close="win-media">X</button>
+                </div>
+            </div>
+            <div class="win-content wmp-container">
+                <div class="wmp-screen" id="visualizer">
+                    <div class="wmp-orb-anim"></div>
+                    <div class="wmp-eq">
+                        <span></span><span></span><span></span><span></span><span></span><span></span>
+                        <span></span><span></span><span></span><span></span><span></span><span></span>
+                    </div>
+                    <div class="wmp-now-playing" id="track-name">01. Underwater_Vista_Dream.mp3</div>
+                </div>
+                <div class="wmp-bar">
+                    <div class="wmp-timeline"><div class="wmp-fill" id="seek-progress"></div></div>
+                    <div class="wmp-btns">
+                        <button class="wmp-ctrl" id="btn-prev">|&lt;</button>
+                        <button class="wmp-ctrl main" id="btn-play">PLAY</button>
+                        <button class="wmp-ctrl" id="btn-stop">STOP</button>
+                        <button class="wmp-ctrl" id="btn-next">&gt;|</button>
+                        <span class="wmp-clock" id="player-timer">00:00</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ВІКНО 7: Paint -->
+        <div class="win-window aero-frame" id="win-paint" style="top: 90px; left: 260px; width: 470px; display: none;">
+            <div class="win-titlebar">
+                <div class="win-title-left">
+                    <span class="title-badge b-paint"></span>
+                    <span class="win-title-text">Без імені - Paint</span>
+                </div>
+                <div class="win-caption-btns">
+                    <button class="cap-btn cap-min">_</button>
+                    <button class="cap-btn cap-close" data-close="win-paint">X</button>
+                </div>
+            </div>
+            <div class="win-content paint-layout">
+                <div class="paint-ribbon">
+                    <div class="ribbon-group">
+                        <button class="p-tool active" data-size="2">Тонкий</button>
+                        <button class="p-tool" data-size="6">Середній</button>
+                        <button class="p-tool" data-size="14">Широкий</button>
+                        <button class="p-tool" id="clear-canvas">Очистити</button>
+                    </div>
+                    <div class="ribbon-colors">
+                        <div class="swatch active" style="background:#000000" data-color="#000000"></div>
+                        <div class="swatch" style="background:#ffffff" data-color="#ffffff"></div>
+                        <div class="swatch" style="background:#e81123" data-color="#e81123"></div>
+                        <div class="swatch" style="background:#ff8c00" data-color="#ff8c00"></div>
+                        <div class="swatch" style="background:#fff100" data-color="#fff100"></div>
+                        <div class="swatch" style="background:#107c10" data-color="#107c10"></div>
+                        <div class="swatch" style="background:#0078d7" data-color="#0078d7"></div>
+                        <div class="swatch" style="background:#00bcf2" data-color="#00bcf2"></div>
+                    </div>
+                </div>
+                <div class="canvas-stage">
+                    <canvas id="paint-canvas" width="430" height="230"></canvas>
+                </div>
+            </div>
+        </div>
+
+        <!-- ВІКНО 8: Блокнот -->
+        <div class="win-window aero-frame" id="win-notes" style="top: 140px; left: 240px; width: 380px; display: none;">
+            <div class="win-titlebar">
+                <div class="win-title-left">
+                    <span class="title-badge b-notepad"></span>
+                    <span class="win-title-text">Нотатки.txt - Блокнот</span>
+                </div>
+                <div class="win-caption-btns">
+                    <button class="cap-btn cap-min">_</button>
+                    <button class="cap-btn cap-max">[]</button>
+                    <button class="cap-btn cap-close" data-close="win-notes">X</button>
+                </div>
+            </div>
+            <div class="menubar">
+                <span>Файл</span><span>Правка</span><span>Формат</span><span>Вигляд</span><span>Довідка</span>
+            </div>
+            <div class="win-content">
+                <textarea class="notepad-editor" spellcheck="false">Windows Vista — Frutiger Aqua Edition&#10;&#10;Ласкаво просимо у підводний інтерфейс 2007 року.&#10;Усі вікна мають скляні рамки Aero, а в системі є 12 інтерактивних програм та ігор.</textarea>
+            </div>
+        </div>
+        <!-- ВІКНО 9: Сапер -->
+        <div class="win-window xp-classic-frame" id="win-mines" style="top: 85px; left: 310px; width: 262px; display: none;">
+            <div class="win-titlebar">
+                <div class="win-title-left">
+                    <span class="title-badge b-mines"></span>
+                    <span class="win-title-text">Сапер</span>
+                </div>
+                <div class="win-caption-btns">
+                    <button class="cap-btn cap-min">_</button>
+                    <button class="cap-btn cap-close" data-close="win-mines">X</button>
+                </div>
+            </div>
+            <div class="win-content mines-container">
+                <div class="mines-status-bar">
+                    <div class="digital-led" id="mines-count">010</div>
+                    <button id="mines-reset" class="smile-btn">Нова</button>
+                    <div class="digital-led" id="mines-timer">000</div>
+                </div>
+                <div id="mines-grid" class="mines-board"></div>
+            </div>
+        </div>
+
+        <!-- ВІКНО 10: Aqua Змійка -->
+        <div class="win-window aero-frame" id="win-snake" style="top: 80px; left: 350px; width: 326px; display: none;">
+            <div class="win-titlebar">
+                <div class="win-title-left">
+                    <span class="title-badge b-snake"></span>
+                    <span class="win-title-text">Aqua Змійка</span>
+                </div>
+                <div class="win-caption-btns">
+                    <button class="cap-btn cap-min">_</button>
+                    <button class="cap-btn cap-close" data-close="win-snake">X</button>
+                </div>
+            </div>
+            <div class="win-content snake-container">
+                <div class="snake-hud">
+                    <span>Очки: <strong id="snake-score">0</strong></span>
+                    <button id="snake-start" class="vista-btn small">Старт / Рестарт</button>
+                </div>
+                <canvas id="snake-canvas" width="290" height="232"></canvas>
+                <div class="snake-footer">Керування: стрілки вгору, вниз, вліво, вправо</div>
+            </div>
+        </div>
+
+        <!-- ВІКНО 11: Калькулятор -->
+        <div class="win-window aero-frame" id="win-calc" style="top: 110px; left: 400px; width: 246px; display: none;">
+            <div class="win-titlebar">
+                <div class="win-title-left">
+                    <span class="title-badge b-calc"></span>
+                    <span class="win-title-text">Калькулятор</span>
+                </div>
+                <div class="win-caption-btns">
+                    <button class="cap-btn cap-min">_</button>
+                    <button class="cap-btn cap-close" data-close="win-calc">X</button>
+                </div>
+            </div>
+            <div class="win-content calc-container">
+                <input type="text" id="calc-display" value="0" readonly>
+                <div class="calc-keys">
+                    <button data-calc="C" class="k-func">C</button>
+                    <button data-calc="BACK" class="k-func">&lt;-</button>
+                    <button data-calc="/" class="k-func">/</button>
+                    <button data-calc="*" class="k-func">*</button>
+                    <button data-calc="7">7</button>
+                    <button data-calc="8">8</button>
+                    <button data-calc="9">9</button>
+                    <button data-calc="-" class="k-func">-</button>
+                    <button data-calc="4">4</button>
+                    <button data-calc="5">5</button>
+                    <button data-calc="6">6</button>
+                    <button data-calc="+" class="k-func">+</button>
+                    <button data-calc="1">1</button>
+                    <button data-calc="2">2</button>
+                    <button data-calc="3">3</button>
+                    <button data-calc="=" class="k-eq">=</button>
+                    <button data-calc="0" class="k-zero">0</button>
+                    <button data-calc=".">.</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- ВІКНО 12: Персоналізація -->
+        <div class="win-window aero-frame" id="win-themes" style="top: 95px; left: 250px; width: 430px; display: none;">
+            <div class="win-titlebar">
+                <div class="win-title-left">
+                    <span class="title-badge b-personalize"></span>
+                    <span class="win-title-text">Персоналізація</span>
+                </div>
+                <div class="win-caption-btns">
+                    <button class="cap-btn cap-min">_</button>
+                    <button class="cap-btn cap-close" data-close="win-themes">X</button>
+                </div>
+            </div>
+            <div class="win-content themes-container">
+                <div class="themes-heading">Оберіть підводну тему Windows Vista</div>
+                <div class="themes-grid">
+                    <div class="theme-option active" data-theme="theme-aqua">
+                        <div class="thumb t-aqua"></div>
+                        <span>Frutiger Aqua (Океан)</span>
+                    </div>
+                    <div class="theme-option" data-theme="theme-abyss">
+                        <div class="thumb t-abyss"></div>
+                        <span>Deep Jellyfish (Глибина)</span>
+                    </div>
+                    <div class="theme-option" data-theme="theme-coral">
+                        <div class="thumb t-coral"></div>
+                        <span>Coral Lagoon (Лагуна)</span>
+                    </div>
+                    <div class="theme-option" data-theme="theme-aurora">
+                        <div class="thumb t-aurora"></div>
+                        <span>Vista Aurora</span>
+                    </div>
+                </div>
+                <div class="themes-checks">
+                    <label><input type="checkbox" id="toggle-widgets" checked> Бічна панель гаджетів Windows</label>
+                    <label><input type="checkbox" id="toggle-globe" checked> Скляний глобус у воді</label>
+                </div>
+            </div>
+        </div>
+        <!-- Скляне Меню Пуск Windows Vista -->
+        <div id="start-menu" class="vista-start-menu">
+            <div class="vsm-inner">
+                <div class="vsm-left">
+                    <div class="vsm-tabs">
+                        <button class="vsm-tab active" data-stab="list-main">Програми</button>
+                        <button class="vsm-tab" data-stab="list-games">Ігри та Аква</button>
+                    </div>
+
+                    <div class="vsm-apps" id="list-main">
+                        <div class="vsm-item" data-win="win-computer">
+                            <span class="title-badge b-computer"></span><span>Комп'ютер</span>
+                        </div>
+                        <div class="vsm-item" data-win="win-ie">
+                            <span class="title-badge b-ie"></span><span>Internet Explorer</span>
+                        </div>
+                        <div class="vsm-item" data-win="win-msn">
+                            <span class="title-badge b-msn"></span><span>Windows Live Messenger</span>
+                        </div>
+                        <div class="vsm-item" data-win="win-media">
+                            <span class="title-badge b-wmp"></span><span>Windows Media Player</span>
+                        </div>
+                        <div class="vsm-item" data-win="win-paint">
+                            <span class="title-badge b-paint"></span><span>Paint</span>
+                        </div>
+                        <div class="vsm-item" data-win="win-notes">
+                            <span class="title-badge b-notepad"></span><span>Блокнот</span>
+                        </div>
+                        <div class="vsm-item" data-win="win-calc">
+                            <span class="title-badge b-calc"></span><span>Калькулятор</span>
+                        </div>
+                    </div>
+
+                    <div class="vsm-apps hidden" id="list-games">
+                        <div class="vsm-item" data-win="win-aquarium">
+                            <span class="title-badge b-aquarium"></span><span>Акваріум 3D</span>
+                        </div>
+                        <div class="vsm-item" data-win="win-mines">
+                            <span class="title-badge b-mines"></span><span>Сапер</span>
+                        </div>
+                        <div class="vsm-item" data-win="win-snake">
+                            <span class="title-badge b-snake"></span><span>Aqua Змійка</span>
+                        </div>
+                        <div class="vsm-item" data-win="win-recycle">
+                            <span class="title-badge b-recycle"></span><span>Кошик з каченям</span>
+                        </div>
+                    </div>
+
+                    <div class="vsm-search">
+                        <input type="text" id="start-search" placeholder="Почати пошук">
+                    </div>
+                </div>
+
+                <div class="vsm-right">
+                    <div class="vsm-avatar-wrap">
+                        <div class="user-avatar"></div>
+                    </div>
+                    <div class="vsm-user-title">Administrator</div>
+                    <div class="vsm-link" data-win="win-computer">Документи</div>
+                    <div class="vsm-link" data-win="win-paint">Зображення</div>
+                    <div class="vsm-link" data-win="win-media">Музика</div>
+                    <div class="vsm-divider"></div>
+                    <div class="vsm-link" data-win="win-themes">Персоналізація</div>
+                    <div class="vsm-link" id="quick-theme-btn">Змінити воду</div>
+                    <div class="vsm-link" id="close-all-btn">Робочий стіл</div>
+
+                    <div class="vsm-power-row">
+                        <button id="btn-lock" class="vsm-power-btn">Замок</button>
+                        <button id="btn-shutdown" class="vsm-power-btn shut">Вимкнути</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Панель завдань Windows Vista Aero -->
+        <div id="taskbar" class="vista-taskbar">
+            <button id="start-btn" class="vista-orb-btn" title="Пуск">
+                <span class="orb-glass">
+                    <span class="orb-flag f1"></span>
+                    <span class="orb-flag f2"></span>
+                    <span class="orb-flag f3"></span>
+                    <span class="orb-flag f4"></span>
+                </span>
+            </button>
+
+            <div id="task-list" class="taskbar-tasks"></div>
+
+            <div class="vista-tray">
+                <div class="tray-icon-theme" id="tray-theme-btn" title="Змінити тему"></div>
+                <div class="tray-icon-net" title="Мережа: Підключено"></div>
+                <div class="tray-icon-vol" title="Гучність: 100%"></div>
+                <div class="tray-datetime">
+                    <div id="tray-clock">12:30</div>
+                    <div id="tray-date">21.11.2026</div>
+                </div>
+                <div class="show-desktop-sliver" id="show-desktop-sliver" title="Показати робочий стіл"></div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
