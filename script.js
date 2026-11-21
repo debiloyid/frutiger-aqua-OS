@@ -921,5 +921,3 @@ document.addEventListener('DOMContentLoaded', () => {
         initMemoryGame();
     }
 });
-
-});
