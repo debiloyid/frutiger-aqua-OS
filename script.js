@@ -852,68 +852,74 @@ document.addEventListener('DOMContentLoaded', () => {
     minesResetBtn.addEventListener('click', initMines);
     initMines();
 
-     // 14. Міні-гра: Aqua Пам'ять (4x4, 8 морських пар)
+  // 14. Міні-гра: Aqua Пам'ять (4x4, 8 морських пар)
     const memGrid = document.getElementById('memory-grid');
     const memMovesEl = document.getElementById('mem-moves');
     const memPairsEl = document.getElementById('mem-pairs');
-    const seaItems = ['Рибка', 'Медуза', 'Дельфін', 'Перлина', 'Корал', 'Зірка', 'Каченя', 'Хвиля'];
-    let flippedCards = [], matchedPairs = 0, movesCount = 0, lockBoard = false;
+    const memRestartBtn = document.getElementById('mem-restart');
 
-    function initMemoryGame() {
-        memGrid.innerHTML = '';
-        flippedCards = [];
-        matchedPairs = 0;
-        movesCount = 0;
-        lockBoard = false;
-        memMovesEl.textContent = '0';
-        memPairsEl.textContent = '0/8';
+    if (memGrid && memMovesEl && memPairsEl && memRestartBtn) {
+        const seaItems = ['Рибка', 'Медуза', 'Дельфін', 'Перлина', 'Корал', 'Зірка', 'Каченя', 'Хвиля'];
+        let flippedCards = [], matchedPairs = 0, movesCount = 0, lockBoard = false;
 
-        const deck = [...seaItems, ...seaItems].sort(() => Math.random() - 0.5);
-
-        deck.forEach(label => {
-            const card = document.createElement('div');
-            card.className = 'mem-card';
-            card.dataset.value = label;
-            card.textContent = label;
-
-            card.addEventListener('click', () => {
-                if (lockBoard || card.classList.contains('flipped') || card.classList.contains('matched')) return;
-
-                card.classList.add('flipped');
-                flippedCards.push(card);
-                playSystemBeep(620, 0.05);
-
-                if (flippedCards.length === 2) {
-                    movesCount++;
-                    memMovesEl.textContent = movesCount;
-                    checkMemoryMatch();
-                }
-            });
-
-            memGrid.appendChild(card);
-        });
-    }
-
-    function checkMemoryMatch() {
-        const [first, second] = flippedCards;
-        if (first.dataset.value === second.dataset.value) {
-            first.classList.add('matched');
-            second.classList.add('matched');
+        function initMemoryGame() {
+            memGrid.innerHTML = '';
             flippedCards = [];
-            matchedPairs++;
-            memPairsEl.textContent = `${matchedPairs}/8`;
-            playSystemBeep(880, 0.12);
-        } else {
-            lockBoard = true;
-            setTimeout(() => {
-                first.classList.remove('flipped');
-                second.classList.remove('flipped');
-                flippedCards = [];
-                lockBoard = false;
-            }, 700);
-        }
-    }
+            matchedPairs = 0;
+            movesCount = 0;
+            lockBoard = false;
+            memMovesEl.textContent = '0';
+            memPairsEl.textContent = '0/8';
 
-    document.getElementById('mem-restart').addEventListener('click', initMemoryGame);
-    initMemoryGame();
+            const deck = [...seaItems, ...seaItems].sort(() => Math.random() - 0.5);
+
+            deck.forEach(label => {
+                const card = document.createElement('div');
+                card.className = 'mem-card';
+                card.dataset.value = label;
+                card.textContent = label;
+
+                card.addEventListener('click', () => {
+                    if (lockBoard || card.classList.contains('flipped') || card.classList.contains('matched')) return;
+
+                    card.classList.add('flipped');
+                    flippedCards.push(card);
+                    playSystemBeep(620, 0.05);
+
+                    if (flippedCards.length === 2) {
+                        movesCount++;
+                        memMovesEl.textContent = movesCount;
+                        checkMemoryMatch();
+                    }
+                });
+
+                memGrid.appendChild(card);
+            });
+        }
+
+        function checkMemoryMatch() {
+            const [first, second] = flippedCards;
+            if (first.dataset.value === second.dataset.value) {
+                first.classList.add('matched');
+                second.classList.add('matched');
+                flippedCards = [];
+                matchedPairs++;
+                memPairsEl.textContent = `${matchedPairs}/8`;
+                playSystemBeep(880, 0.12);
+            } else {
+                lockBoard = true;
+                setTimeout(() => {
+                    first.classList.remove('flipped');
+                    second.classList.remove('flipped');
+                    flippedCards = [];
+                    lockBoard = false;
+                }, 700);
+            }
+        }
+
+        memRestartBtn.addEventListener('click', initMemoryGame);
+        initMemoryGame();
+    }
+});
+
 });
