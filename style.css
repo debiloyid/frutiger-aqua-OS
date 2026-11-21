@@ -1228,3 +1228,123 @@ body.theme-aurora .jf-umbrella {
 .vsm-power-row { margin-top: auto; display: flex; gap: 4px; padding-top: 8px; }
 .vsm-power-btn { flex: 1; padding: 5px 4px; border: 1px solid rgba(255,255,255,0.75); border-radius: 10px; background: linear-gradient(180deg, rgba(255,255,255,0.4), rgba(255,255,255,0.12)); color: #fff; font-size: 11px; cursor: pointer; }
 .vsm-power-btn.shut { background: linear-gradient(180deg, #ff7b6b, #c92414); }
+/* Глянцеві CSS-картинки всередині карток Aqua Пам'ять */
+.mem-card {
+    position: relative;
+    overflow: hidden;
+}
+
+.mem-art {
+    width: 34px;
+    height: 34px;
+    border-radius: 50%;
+    position: relative;
+    opacity: 0;
+    transform: scale(0.6);
+    transition: opacity 0.2s ease, transform 0.2s ease;
+    box-shadow: 0 3px 8px rgba(0, 40, 90, 0.28), inset 0 2px 4px rgba(255, 255, 255, 0.9);
+}
+
+/* Верхній скляний відблиск на кожній фігурці */
+.mem-art::after {
+    content: '';
+    position: absolute;
+    top: 3px;
+    left: 6px;
+    right: 6px;
+    height: 12px;
+    border-radius: 50%;
+    background: linear-gradient(180deg, rgba(255,255,255,0.9), transparent);
+}
+
+.mem-card.flipped .mem-art,
+.mem-card.matched .mem-art {
+    opacity: 1;
+    transform: scale(1);
+}
+
+/* 1. Золота рибка */
+.art-fish {
+    background: radial-gradient(circle at 60% 35%, #fff3b0, #ff9500 55%, #e63900 100%);
+    border-radius: 60% 40% 40% 60% / 50%;
+    width: 36px;
+    height: 24px;
+}
+.art-fish::before {
+    content: '';
+    position: absolute;
+    left: -7px;
+    top: 3px;
+    width: 10px;
+    height: 18px;
+    background: #ff7b00;
+    clip-path: polygon(100% 50%, 0 0, 0 100%);
+}
+
+/* 2. Медуза */
+.art-jelly {
+    background: radial-gradient(circle at 45% 25%, #ffffff, #90e0ef 50%, #c77dff 100%);
+    border-radius: 50% 50% 25% 25% / 75% 75% 25% 25%;
+    height: 28px;
+}
+.art-jelly::before {
+    content: '';
+    position: absolute;
+    bottom: -7px;
+    left: 8px;
+    width: 3px;
+    height: 8px;
+    background: #90e0ef;
+    box-shadow: 7px 0 0 #c77dff, 14px 0 0 #90e0ef;
+}
+
+/* 3. Перлина */
+.art-pearl {
+    background: radial-gradient(circle at 35% 30%, #ffffff 10%, #e0fbfc 50%, #90e0ef 85%, #48cae4 100%);
+    border: 1.5px solid #ffffff;
+}
+
+/* 4. Водяна крапля */
+.art-drop {
+    background: radial-gradient(circle at 35% 35%, #caf0f8, #00b4d8 55%, #0077b6 100%);
+    border-radius: 0 50% 50% 50%;
+    transform: rotate(45deg) scale(0.6);
+}
+.mem-card.flipped .art-drop,
+.mem-card.matched .art-drop {
+    transform: rotate(45deg) scale(0.95);
+}
+
+/* 5. Скляний глобус */
+.art-globe {
+    background: radial-gradient(circle at 35% 30%, #90e0ef, #0077b6 75%);
+}
+.art-globe::before {
+    content: '';
+    position: absolute;
+    top: 8px;
+    left: 7px;
+    width: 14px;
+    height: 12px;
+    background: #55a630;
+    border-radius: 40% 60% 50% 40%;
+    box-shadow: 8px 8px 0 -2px #80ed99;
+}
+
+/* 6. Листок Eco */
+.art-leaf {
+    background: radial-gradient(circle at 35% 30%, #ccff33, #38b000 65%, #007200 100%);
+    border-radius: 5px 24px 5px 24px;
+}
+
+/* 7. Сонце */
+.art-sun {
+    background: radial-gradient(circle at 35% 35%, #fff9a6, #ffbe0b 55%, #fb5607 100%);
+    box-shadow: 0 0 12px rgba(255, 190, 11, 0.8);
+}
+
+/* 8. Корал */
+.art-coral {
+    background: radial-gradient(circle at 40% 30%, #ffccd5, #ff4d6d 60%, #a4133c 100%);
+    border-radius: 50% 50% 25% 25%;
+}
