@@ -685,21 +685,25 @@ body.theme-aurora .jf-umbrella {
     box-shadow: 0 0 6px rgba(255,255,255,0.8);
 }
 
-/* 10. Aqua Змійка (Неоново-бірюзова капсула) */
-.ico-snake {
+/* Іконка та бейдж Aqua Пам'ять */
+.ico-memory {
     background: linear-gradient(135deg, #0077b6, #00f5d4);
 }
-.ico-snake::before {
-    content: '';
+.ico-memory::before {
+    content: '?';
     position: absolute;
-    top: 12px;
-    left: 8px;
-    width: 22px;
-    height: 6px;
-    background: #ccff33;
-    border-radius: 4px;
-    box-shadow: 0 11px 0 #ccff33;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #ffffff;
+    font-weight: 800;
+    font-size: 22px;
+    text-shadow: 0 2px 4px rgba(0,40,90,0.6);
 }
+.b-memory { background: linear-gradient(135deg, #0077b6, #00f5d4); }
+
+
 
 /* 11. Калькулятор (Кришталева блакитна капсула) */
 .ico-calc {
@@ -1118,10 +1122,50 @@ body.theme-aurora .jf-umbrella {
 .mine-cell.flagged { background: #fff3b0; color: #d00000; }
 .mine-cell.bomb { background: #ff595e; color: #fff; }
 
-.snake-container { background: #e8f8ff; padding: 8px; text-align: center; }
-.snake-hud { display: flex; justify-content: space-between; align-items: center; margin-bottom: 6px; font-size: 12.5px; color: #023e8a; }
-#snake-canvas { background: linear-gradient(180deg, #023e8a, #0077b6); border: 1px solid #48cae4; border-radius: 6px; display: block; margin: 0 auto; }
-.snake-footer { font-size: 11px; color: #0077b6; margin-top: 5px; }
+/* Вікно гри Aqua Пам'ять */
+.memory-container { background: #e8f8ff; padding: 10px; }
+.memory-hud {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+    font-size: 12px;
+    color: #023e8a;
+}
+.memory-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 8px;
+}
+.mem-card {
+    height: 56px;
+    border-radius: 12px;
+    border: 1.5px solid #ffffff;
+    background: radial-gradient(circle at 35% 25%, #90e0ef, #0077b6 85%);
+    box-shadow: 0 4px 10px rgba(0, 50, 110, 0.25), inset 0 2px 4px rgba(255,255,255,0.85);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 11px;
+    font-weight: 700;
+    color: transparent;
+    cursor: pointer;
+    transition: transform 0.2s ease, background 0.2s ease;
+}
+.mem-card:hover { transform: scale(1.04); }
+.mem-card.flipped, .mem-card.matched {
+    background: linear-gradient(180deg, #ffffff 0%, #caf0f8 100%);
+    border-color: #00b4d8;
+    color: #023e8a;
+    transform: rotateY(180deg) scaleX(-1);
+}
+.mem-card.matched {
+    background: linear-gradient(180deg, #d8f3dc 0%, #80ed99 100%);
+    border-color: #38b000;
+    color: #004b23;
+    cursor: default;
+}
+
 
 .calc-container { background: #e8f8ff; padding: 8px; }
 #calc-display { width: 100%; height: 34px; text-align: right; font-size: 18px; font-family: monospace; padding: 4px 8px; margin-bottom: 8px; border: 1px solid #48cae4; border-radius: 6px; background: linear-gradient(180deg, #fff, #e0f7fa); }
